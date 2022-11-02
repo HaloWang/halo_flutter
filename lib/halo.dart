@@ -142,33 +142,6 @@ extension HLString on String {
     }
     return breakWord;
   }
-
-  Text ts({
-    Color? c,
-    FontWeight? w,
-    TextAlign? textAlign,
-    TextBaseline? baseline,
-    TextDecoration? decoration,
-    bool? softWrap,
-    double? height,
-    double? s,
-    int? maxLines,
-  }) {
-    return T(
-      this,
-      maxLines: maxLines,
-      softWrap: softWrap,
-      textAlign: textAlign,
-      s: TextStyle(
-        color: c,
-        decoration: decoration,
-        fontSize: s,
-        fontWeight: w,
-        height: height,
-        textBaseline: baseline,
-      ),
-    );
-  }
 }
 
 extension HLNum on num {
@@ -182,33 +155,6 @@ extension HLNum on num {
 
   BorderRadius get r {
     return BorderRadius.circular(toDouble());
-  }
-
-  Text ts({
-    Color? c,
-    FontWeight? w,
-    TextAlign? textAlign,
-    TextBaseline? baseline,
-    TextDecoration? decoration,
-    bool? softWrap,
-    double? height,
-    double? s,
-    int? maxLines,
-  }) {
-    return T(
-      toString(),
-      maxLines: maxLines,
-      softWrap: softWrap,
-      textAlign: textAlign,
-      s: TextStyle(
-        color: c,
-        decoration: decoration,
-        fontSize: s,
-        fontWeight: w,
-        height: height,
-        textBaseline: baseline,
-      ),
-    );
   }
 }
 
