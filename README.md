@@ -15,4 +15,4 @@ Personal flutter tools
 
 ## Features
 
-Add serveral extensions and function for my flutter developing.
+Add serveral extensions and function for my flutter development.
