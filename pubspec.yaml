@@ -2,6 +2,8 @@ name: halo_flutter
 description: >-
   Personal flutter tools
 version: 0.0.2
+homepage: https://github.com/halowang/halo_flutter
+
 environment:
   sdk: '>=2.18.4 <3.0.0'
   flutter: '>=1.17.0'
