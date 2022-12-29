@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Add `EI` (EdgeInsets) shortcut
+
 ## 0.0.3
 
 - Add `EI` (EdgeInsets) shortcuts

@@ -61,7 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 //
               },
-              child: C(),
+              child: C(
+                padding: EI.zero,
+              ),
             ),
             const Text(
               'You have pushed the button this many times:',

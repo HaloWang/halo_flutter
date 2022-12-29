@@ -47,6 +47,8 @@ extension HLColor on Color {
 }
 
 class EI extends EdgeInsets {
+  static const EI zero = EI.a(0);
+
   /// symmetric
   const EI.s({
     double v = 0.0,
