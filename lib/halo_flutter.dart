@@ -7,12 +7,12 @@ typedef BD = BoxDecoration;
 typedef BR = BorderRadius;
 typedef C = Container;
 typedef CAA = CrossAxisAlignment;
-typedef EI = EdgeInsets;
+typedef Exp = Expanded;
 typedef FW = FontWeight;
 typedef GD = GestureDetector;
 typedef MAA = MainAxisAlignment;
+typedef OB = OutlinedButton;
 typedef SB = SizedBox;
-typedef Exp = Expanded;
 
 const kW = Colors.white;
 const kB = Colors.black;
@@ -38,6 +38,44 @@ extension HLWidget on Widget {
       return this;
     }
   }
+}
+
+extension HLColor on Color {
+  Color wo(double opacity) {
+    return withOpacity(opacity);
+  }
+}
+
+class EI extends EdgeInsets {
+  /// symmetric
+  const EI.s({
+    double v = 0.0,
+    double h = 0.0,
+  }) : super.symmetric(vertical: v, horizontal: h);
+
+  /// only
+  const EI.o({
+    double l = 0.0,
+    double t = 0.0,
+    double r = 0.0,
+    double b = 0.0,
+  }) : super.only(
+          left: l,
+          top: t,
+          right: r,
+          bottom: b,
+        );
+
+  /// fromLTRB
+  const EI.f(
+    double l,
+    double t,
+    double r,
+    double b,
+  ) : super.fromLTRB(l, t, r, b);
+
+  /// all
+  const EI.a(super.value) : super.all();
 }
 
 extension HLStringFlutter on String {
