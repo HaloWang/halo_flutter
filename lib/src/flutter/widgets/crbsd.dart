@@ -6,14 +6,11 @@ class CRBSD extends ShapeDecoration {
     BorderRadiusGeometry? borderRadius,
     Color? borderColor,
     double? borderWidth,
-    Color? color,
-    Gradient? gradient,
-    List<BoxShadow>? shadows,
+    super.color,
+    super.gradient,
+    super.shadows,
     double strokeAlign = BorderSide.strokeAlignInside,
   }) : super(
-          color: color,
-          shadows: shadows,
-          gradient: gradient,
           shape: ContinuousRectangleBorder(
             borderRadius: borderRadius ?? 12.r,
             side: (borderColor != null || borderWidth != null)

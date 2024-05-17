@@ -28,11 +28,11 @@ class EI extends EdgeInsets {
 
   /// fromLTRB
   const EI.f(
-    double l,
-    double t,
-    double r,
-    double b,
-  ) : super.fromLTRB(l, t, r, b);
+    super.l,
+    super.t,
+    super.r,
+    super.b,
+  ) : super.fromLTRB();
 
   /// all
   const EI.a(super.value) : super.all();

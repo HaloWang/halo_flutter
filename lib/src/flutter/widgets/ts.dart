@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -9,23 +8,17 @@ class TS extends TextStyle {
     FontWeight? w,
     String? ff,
     TextBaseline? baseline,
-    TextDecoration? decoration,
-    double? height,
-    Paint? background,
-    Paint? foreground,
-    List<FontFeature>? fontFeatures,
-    List<Shadow>? shadows,
+    super.decoration,
+    super.height,
+    super.background,
+    super.foreground,
+    super.fontFeatures,
+    super.shadows,
   }) : super(
-          fontFeatures: fontFeatures,
           color: c,
           fontWeight: w,
           fontSize: s,
-          decoration: decoration,
-          height: height,
           textBaseline: baseline,
           fontFamily: ff,
-          background: background,
-          foreground: foreground,
-          shadows: shadows,
         );
 }

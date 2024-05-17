@@ -38,21 +38,21 @@ class Splash extends StatelessWidget {
       onPressed: onTap,
       onHover: onHover,
       style: ButtonStyle(
-        elevation: MaterialStatePropertyAll(elevation),
-        padding: MaterialStatePropertyAll(padding),
-        foregroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.hovered)) {
+        elevation: WidgetStatePropertyAll(elevation),
+        padding: WidgetStatePropertyAll(padding),
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.hovered)) {
             return hoverForegroundColor ?? foregroundColor;
           }
           return foregroundColor;
         }),
-        backgroundColor: MaterialStateProperty.resolveWith((states) {
-          if (states.contains(MaterialState.hovered)) {
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.hovered)) {
             return hoverBackgroundColor ?? backgroundColor;
           }
           return backgroundColor;
         }),
-        shape: MaterialStatePropertyAll(useContinuousRectangleBorder
+        shape: WidgetStatePropertyAll(useContinuousRectangleBorder
             ? ContinuousRectangleBorder(
                 borderRadius: borderRadius,
                 side: side,
