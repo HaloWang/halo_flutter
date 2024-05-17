@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TS extends TextStyle {

@@ -1,3 +1,7 @@
+## 0.0.3
+
+`dart format .`
+
 ## 0.0.2
 
 `dart fix --apply`
