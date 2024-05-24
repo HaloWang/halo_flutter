@@ -14,6 +14,9 @@ class Splash extends StatelessWidget {
   final double? elevation;
   final void Function()? onTap;
   final void Function(bool)? onHover;
+  final Size? fixedSize;
+  final Size? maximumSize;
+  final Size? minimumSize;
 
   const Splash({
     this.borderRadius = BorderRadius.zero,
@@ -30,6 +33,9 @@ class Splash extends StatelessWidget {
     this.useContinuousRectangleBorder = true,
     this.side = BorderSide.none,
     this.elevation,
+    this.fixedSize,
+    this.maximumSize,
+    this.minimumSize,
   });
 
   @override
@@ -38,21 +44,27 @@ class Splash extends StatelessWidget {
       onPressed: onTap,
       onHover: onHover,
       style: ButtonStyle(
-        elevation: WidgetStatePropertyAll(elevation),
-        padding: WidgetStatePropertyAll(padding),
-        foregroundColor: WidgetStateProperty.resolveWith((states) {
-          if (states.contains(WidgetState.hovered)) {
+        fixedSize:
+            fixedSize != null ? MaterialStatePropertyAll(fixedSize) : null,
+        maximumSize:
+            maximumSize != null ? MaterialStatePropertyAll(maximumSize) : null,
+        minimumSize:
+            minimumSize != null ? MaterialStatePropertyAll(minimumSize) : null,
+        elevation: MaterialStatePropertyAll(elevation),
+        padding: MaterialStatePropertyAll(padding),
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.hovered)) {
             return hoverForegroundColor ?? foregroundColor;
           }
           return foregroundColor;
         }),
-        backgroundColor: WidgetStateProperty.resolveWith((states) {
-          if (states.contains(WidgetState.hovered)) {
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.hovered)) {
             return hoverBackgroundColor ?? backgroundColor;
           }
           return backgroundColor;
         }),
-        shape: WidgetStatePropertyAll(useContinuousRectangleBorder
+        shape: MaterialStatePropertyAll(useContinuousRectangleBorder
             ? ContinuousRectangleBorder(
                 borderRadius: borderRadius,
                 side: side,

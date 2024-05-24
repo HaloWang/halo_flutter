@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
 
+/// ContinuousRectangleBorder
+///
+/// ShapeDecoration
 class CRBSD extends ShapeDecoration {
   CRBSD({
     BorderRadiusGeometry? borderRadius,

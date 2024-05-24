@@ -1,3 +1,15 @@
+## 0.0.6
+
+downgrade api
+
+## 0.0.5
+
+Replace `WidgetStatePropertyAll` with `MaterialStatePropertyAll`
+
+## 0.0.4
+
+downgrade dart version
+
 ## 0.0.3
 
 `dart format .`
