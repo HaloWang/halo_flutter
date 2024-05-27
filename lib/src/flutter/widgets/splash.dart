@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+/// https://api.flutter.dev/flutter/painting/OutlinedBorder-class.html
+enum BorderShapeType {
+  continuousRectangleBorder,
+  roundedRectangleBorder,
+  circleBorder,
+}
 
 class Splash extends StatelessWidget {
   final BorderRadiusGeometry borderRadius;
@@ -10,7 +18,12 @@ class Splash extends StatelessWidget {
   final EdgeInsetsGeometry? innerPadding;
   final EdgeInsetsGeometry? padding;
   final Widget? child;
+
+  @Deprecated("Use borderShapeType instead")
   final bool useContinuousRectangleBorder;
+
+  final BorderShapeType borderShapeType;
+
   final double? elevation;
   final void Function()? onTap;
   final void Function(bool)? onHover;
@@ -19,37 +32,61 @@ class Splash extends StatelessWidget {
   final Size? minimumSize;
 
   const Splash({
-    this.borderRadius = BorderRadius.zero,
-    this.onTap,
     super.key,
-    this.child,
-    this.foregroundColor,
-    this.hoverForegroundColor,
     this.backgroundColor,
-    this.hoverBackgroundColor,
-    this.innerPadding,
-    this.padding,
-    this.onHover,
-    this.useContinuousRectangleBorder = true,
-    this.side = BorderSide.none,
+    this.borderRadius = BorderRadius.zero,
+    this.borderShapeType = BorderShapeType.continuousRectangleBorder,
+    this.child,
     this.elevation,
     this.fixedSize,
+    this.foregroundColor,
+    this.hoverBackgroundColor,
+    this.hoverForegroundColor,
+    this.innerPadding,
     this.maximumSize,
     this.minimumSize,
+    this.onHover,
+    this.onTap,
+    this.padding,
+    this.side = BorderSide.none,
+    this.useContinuousRectangleBorder = true,
   });
 
   @override
   Widget build(BuildContext context) {
+    late final WidgetStateProperty<OutlinedBorder?>? shape;
+
+    switch (borderShapeType) {
+      case BorderShapeType.continuousRectangleBorder:
+        shape = MaterialStatePropertyAll(
+          ContinuousRectangleBorder(
+            borderRadius: borderRadius,
+            side: side,
+          ),
+        );
+      case BorderShapeType.roundedRectangleBorder:
+        shape = MaterialStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: borderRadius,
+            side: side,
+          ),
+        );
+      case BorderShapeType.circleBorder:
+        shape = MaterialStatePropertyAll(
+          BeveledRectangleBorder(
+            borderRadius: borderRadius,
+            side: side,
+          ),
+        );
+    }
+
     return ElevatedButton(
       onPressed: onTap,
       onHover: onHover,
       style: ButtonStyle(
-        fixedSize:
-            fixedSize != null ? MaterialStatePropertyAll(fixedSize) : null,
-        maximumSize:
-            maximumSize != null ? MaterialStatePropertyAll(maximumSize) : null,
-        minimumSize:
-            minimumSize != null ? MaterialStatePropertyAll(minimumSize) : null,
+        fixedSize: fixedSize != null ? MaterialStatePropertyAll(fixedSize) : null,
+        maximumSize: maximumSize != null ? MaterialStatePropertyAll(maximumSize) : null,
+        minimumSize: minimumSize != null ? MaterialStatePropertyAll(minimumSize) : null,
         elevation: MaterialStatePropertyAll(elevation),
         padding: MaterialStatePropertyAll(padding),
         foregroundColor: MaterialStateProperty.resolveWith((states) {
@@ -64,15 +101,7 @@ class Splash extends StatelessWidget {
           }
           return backgroundColor;
         }),
-        shape: MaterialStatePropertyAll(useContinuousRectangleBorder
-            ? ContinuousRectangleBorder(
-                borderRadius: borderRadius,
-                side: side,
-              )
-            : RoundedRectangleBorder(
-                borderRadius: borderRadius,
-                side: side,
-              )),
+        shape: shape,
       ),
       child: innerPadding != null
           ? Padding(
