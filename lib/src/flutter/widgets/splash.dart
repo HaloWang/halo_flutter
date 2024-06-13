@@ -18,6 +18,7 @@ class Splash extends StatelessWidget {
   final EdgeInsetsGeometry? innerPadding;
   final EdgeInsetsGeometry? padding;
   final Widget? child;
+  final InteractiveInkFeatureFactory? splashFactory;
 
   @Deprecated("Use borderShapeType instead")
   final bool useContinuousRectangleBorder;
@@ -39,22 +40,23 @@ class Splash extends StatelessWidget {
     this.child,
     this.elevation,
     this.fixedSize,
+    this.maximumSize,
+    this.minimumSize,
     this.foregroundColor,
     this.hoverBackgroundColor,
     this.hoverForegroundColor,
     this.innerPadding,
-    this.maximumSize,
-    this.minimumSize,
     this.onHover,
     this.onTap,
-    this.padding,
+    this.padding = EdgeInsets.zero,
     this.side = BorderSide.none,
     this.useContinuousRectangleBorder = true,
+    this.splashFactory = InkSplash.splashFactory,
   });
 
   @override
   Widget build(BuildContext context) {
-    late final WidgetStateProperty<OutlinedBorder?>? shape;
+    late final MaterialStateProperty<OutlinedBorder?>? shape;
 
     switch (borderShapeType) {
       case BorderShapeType.continuousRectangleBorder:
@@ -80,15 +82,21 @@ class Splash extends StatelessWidget {
         );
     }
 
+    final _fixedSize = fixedSize != null ? MaterialStatePropertyAll(fixedSize) : null;
+    final _maximumSize = maximumSize != null ? MaterialStatePropertyAll(maximumSize) : _fixedSize;
+    final _minimumSize = minimumSize != null ? MaterialStatePropertyAll(minimumSize) : _fixedSize;
+
     return ElevatedButton(
       onPressed: onTap,
       onHover: onHover,
       style: ButtonStyle(
-        fixedSize: fixedSize != null ? MaterialStatePropertyAll(fixedSize) : null,
-        maximumSize: maximumSize != null ? MaterialStatePropertyAll(maximumSize) : null,
-        minimumSize: minimumSize != null ? MaterialStatePropertyAll(minimumSize) : null,
+        splashFactory: splashFactory,
+        fixedSize: _fixedSize,
+        maximumSize: _maximumSize,
+        minimumSize: _minimumSize,
         elevation: MaterialStatePropertyAll(elevation),
         padding: MaterialStatePropertyAll(padding),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         foregroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.hovered)) {
             return hoverForegroundColor ?? foregroundColor;

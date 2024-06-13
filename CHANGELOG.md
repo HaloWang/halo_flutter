@@ -1,5 +1,9 @@
 ## 0.0.6
 
+upgrade api
+
+## 0.0.6
+
 downgrade api
 
 ## 0.0.5

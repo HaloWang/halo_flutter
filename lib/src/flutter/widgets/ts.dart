@@ -13,6 +13,8 @@ class TS extends TextStyle {
     super.foreground,
     super.fontFeatures,
     super.shadows,
+    super.letterSpacing,
+    super.wordSpacing,
   }) : super(
           color: c,
           fontWeight: w,
