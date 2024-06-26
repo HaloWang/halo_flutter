@@ -24,7 +24,14 @@ String randomString({
   int min = 1,
   int max = 2000,
   double spacingRate = 0.05,
+  String? template,
 }) {
+  if (template != null && template.isNotEmpty) {
+    min = template.length;
+    max = template.length;
+    final spaceCount = template.split(" ").length;
+    spacingRate = spaceCount / template.length;
+  }
   final fixed = max <= min;
   final length = fixed ? min : _rnd.nextInt(max - min) + min;
   var useSpace = _rnd.nextDouble() < spacingRate;
