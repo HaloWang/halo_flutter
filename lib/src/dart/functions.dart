@@ -1,8 +1,6 @@
 import 'dart:math';
 
 /// Wait milliseconds
-///
-/// 🚧 别忘了 await
 Future<void> wait(int ms) {
   return Future.delayed(Duration(milliseconds: ms));
 }

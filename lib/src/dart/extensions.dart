@@ -2,6 +2,24 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 
+extension HaloObjectNull on Object? {
+  Map get mapValue {
+    try {
+      return this as Map;
+    } catch (e) {
+      return {};
+    }
+  }
+
+  List get listValue {
+    try {
+      return this as List;
+    } catch (e) {
+      return [];
+    }
+  }
+}
+
 extension HaloDartNumT<T extends num> on T {
   T squeeze(T min, T max) {
     if (this < min) return min;
@@ -87,6 +105,10 @@ extension HaloDartList<T> on List<T> {
         return;
       }
     }
+  }
+
+  List<Map> get mv {
+    return map((e) => e.mapValue).toList();
   }
 }
 
