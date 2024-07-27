@@ -82,3 +82,5 @@ extension HaloListSpan on List<InlineSpan> {
     return r;
   }
 }
+
+extension HaloString on String {}
