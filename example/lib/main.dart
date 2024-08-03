@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
 
 void main() {
-  final q = null.listValue;
-  final q1 = null.mapValue;
-  final q3 = q.mv;
-  if (kDebugMode) print("💬 ${q.runtimeType}");
-  if (kDebugMode) print("💬 ${q1.runtimeType}");
-  if (kDebugMode) print("💬 ${q3.runtimeType}");
+  final Map<String, String> map = {};
+  final List<String> list = [];
+  final ii = list.map((e) => e);
+  final r = ii.getIndex(10);
   runApp(const MainApp());
 }
 

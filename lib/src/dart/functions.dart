@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:halo/src/dart/extensions.dart';
+
 /// Wait milliseconds
 Future<void> wait(int ms) {
   return Future.delayed(Duration(milliseconds: ms));
@@ -52,4 +54,12 @@ bool randomBool({double truePercentage = 0.5}) {
   final double percentage = max(0, min(1, truePercentage));
   final next = _rnd.nextDouble() < percentage;
   return next;
+}
+
+List<Map> listMap(Object? object) {
+  try {
+    return (object as List).mv;
+  } catch (e) {
+    return [];
+  }
 }

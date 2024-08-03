@@ -2,24 +2,6 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 
-extension HaloObjectNull on Object? {
-  Map get mapValue {
-    try {
-      return this as Map;
-    } catch (e) {
-      return {};
-    }
-  }
-
-  List get listValue {
-    try {
-      return this as List;
-    } catch (e) {
-      return [];
-    }
-  }
-}
-
 extension HaloDartNumT<T extends num> on T {
   T squeeze(T min, T max) {
     if (this < min) return min;
@@ -58,6 +40,13 @@ extension HaloDartIterable<T> on Iterable<T> {
     bool growable = false,
   }) =>
       toList(growable: growable).m(convert, growable: growable);
+
+  T? getIndex(int index) {
+    if (isEmpty) return null;
+    if (length <= index) return null;
+    if (this is List) return (this as List)[index];
+    return toList(growable: false)[index];
+  }
 }
 
 extension HaloDartList<T> on List<T> {
@@ -108,7 +97,7 @@ extension HaloDartList<T> on List<T> {
   }
 
   List<Map> get mv {
-    return map((e) => e.mapValue).toList();
+    return map((e) => e as Map).toList();
   }
 }
 
@@ -212,6 +201,16 @@ extension HaloDartString on String {
       return substring(0, length - 3);
     }
     return this;
+  }
+
+  String get withoutNonAlphabets {
+    final regExp = RegExp("[^a-zA-Z0-9]");
+    return replaceAll(regExp, "");
+  }
+
+  String get withoutAlphabets {
+    final regExp = RegExp("[a-zA-Z0-9]");
+    return replaceAll(regExp, "");
   }
 
   /// Example
