@@ -1,3 +1,7 @@
+## 0.0.17
+
+- New API added.
+
 ## 0.0.16
 
 - New API added.

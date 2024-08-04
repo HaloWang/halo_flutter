@@ -8,10 +8,6 @@ linter:
     prefer_interpolation_to_compose_strings: false
     library_private_types_in_public_api: false
 
-    prefer_const_constructors: false
-    prefer_const_constructors_in_immutables: false
-    prefer_const_literals_to_create_immutables: false
-
-    # prefer_const_constructors: true
-    # prefer_const_constructors_in_immutables: true
-    # prefer_const_literals_to_create_immutables: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_literals_to_create_immutables: true

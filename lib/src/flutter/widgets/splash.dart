@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 /// https://api.flutter.dev/flutter/painting/OutlinedBorder-class.html
 enum BorderShapeType {

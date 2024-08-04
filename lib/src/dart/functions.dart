@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:halo/src/dart/extensions.dart';
@@ -62,4 +63,10 @@ List<Map> listMap(Object? object) {
   } catch (e) {
     return [];
   }
+}
+
+String formatedJSONString(Object? object) {
+  const encoder = JsonEncoder.withIndent('  ');
+  final prettyJson = encoder.convert(object);
+  return prettyJson;
 }
