@@ -55,12 +55,6 @@ extension HaloDartIterable<T> on Iterable<T> {
     if (this is List) return (this as List)[index];
     return toList(growable: false)[index];
   }
-
-  String get formatedJSONString {
-    const encoder = JsonEncoder.withIndent('  ');
-    final prettyJson = encoder.convert(this);
-    return prettyJson;
-  }
 }
 
 extension HaloDartList<T> on List<T> {
@@ -112,6 +106,12 @@ extension HaloDartList<T> on List<T> {
 
   List<Map> get mv {
     return map((e) => e as Map).toList();
+  }
+
+  String get formatedJSONString {
+    const encoder = JsonEncoder.withIndent('  ');
+    final prettyJson = encoder.convert(this);
+    return prettyJson;
   }
 }
 
@@ -203,6 +203,12 @@ extension HaloDartMap<K, V> on Map<K, V> {
     }
 
     return result;
+  }
+
+  String get formatedJSONString {
+    const encoder = JsonEncoder.withIndent('  ');
+    final prettyJson = encoder.convert(this);
+    return prettyJson;
   }
 }
 
