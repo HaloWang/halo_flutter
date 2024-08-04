@@ -105,8 +105,12 @@ extension HaloDartList<T> on List<T> {
   }
 
   List<Map> get mv {
-    return map((e) => e as Map).toList();
-  }
+    try {
+      return map((e) => e as Map).toList();
+    } catch (e) {
+      throw "Element is not Map";
+    }
+}
 
   String get formatedJSONString {
     const encoder = JsonEncoder.withIndent('  ');

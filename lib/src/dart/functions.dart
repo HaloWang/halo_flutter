@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:halo/src/dart/extensions.dart';
@@ -59,14 +58,16 @@ bool randomBool({double truePercentage = 0.5}) {
 
 List<Map> listMap(Object? object) {
   try {
-    return (object as List).mv;
+    return list(object).mv;
   } catch (e) {
-    return [];
+    throw "Target is now List";
   }
 }
 
-String formatedJSONString(Object? object) {
-  const encoder = JsonEncoder.withIndent('  ');
-  final prettyJson = encoder.convert(object);
-  return prettyJson;
+List list(Object? object) {
+  try {
+    return object as List;
+  } catch (e) {
+    throw "Target is now List";
+  }
 }
