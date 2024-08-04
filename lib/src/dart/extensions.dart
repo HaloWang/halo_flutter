@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
@@ -46,6 +47,19 @@ extension HaloDartIterable<T> on Iterable<T> {
     if (length <= index) return null;
     if (this is List) return (this as List)[index];
     return toList(growable: false)[index];
+  }
+
+  T? get(int index) {
+    if (isEmpty) return null;
+    if (length <= index) return null;
+    if (this is List) return (this as List)[index];
+    return toList(growable: false)[index];
+  }
+
+  String get formatedJSONString {
+    const encoder = JsonEncoder.withIndent('  ');
+    final prettyJson = encoder.convert(this);
+    return prettyJson;
   }
 }
 
@@ -257,5 +271,12 @@ extension HaloDartString on String {
       }
     }
     return subSequence;
+  }
+
+  String get codeToName {
+    final firstUpper = this[0].toUpperCase() + substring(1);
+    final regexp = RegExp(r'(?<=[a-z])(?=[A-Z])');
+    final addSpacing = firstUpper.split(regexp).join(" ");
+    return addSpacing;
   }
 }

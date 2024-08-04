@@ -1,3 +1,7 @@
+## 0.0.15
+
+- New API added.
+
 ## 0.0.14
 
 add api
@@ -17,7 +21,7 @@ add api
 
 ## 0.0.10
 
-add api
+add apiw
 
 ## 0.0.8
 
