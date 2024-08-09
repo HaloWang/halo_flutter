@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
+import 'package:halo/src/dart/functions.dart';
 
 extension HaloDartNumT<T extends num> on T {
   T squeeze(T min, T max) {
@@ -42,6 +43,7 @@ extension HaloDartIterable<T> on Iterable<T> {
   }) =>
       toList(growable: growable).m(convert, growable: growable);
 
+  @Deprecated("Use get instead.")
   T? getIndex(int index) {
     if (isEmpty) return null;
     if (length <= index) return null;
@@ -54,6 +56,13 @@ extension HaloDartIterable<T> on Iterable<T> {
     if (length <= index) return null;
     if (this is List) return (this as List)[index];
     return toList(growable: false)[index];
+  }
+
+  T? get random {
+    if (isEmpty) return null;
+    if (length == 1) return first;
+    final index = HF.randomInt(min: 0, max: length - 1);
+    return getIndex(index);
   }
 }
 
@@ -110,7 +119,7 @@ extension HaloDartList<T> on List<T> {
     } catch (e) {
       throw "Element is not Map";
     }
-}
+  }
 
   String get formatedJSONString {
     const encoder = JsonEncoder.withIndent('  ');

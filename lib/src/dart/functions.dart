@@ -34,7 +34,7 @@ abstract class HF {
     int min = 1,
     int max = 9999999,
   }) {
-    return _rnd.nextInt(max - min) + min;
+    return _rnd.nextInt(max - min + 1) + min;
   }
 
   static String randomString({
