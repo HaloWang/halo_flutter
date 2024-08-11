@@ -3,21 +3,25 @@ import 'package:flutter/material.dart';
 
 class T extends Text {
   static const String kNullText = kDebugMode ? "debug:null" : "";
+
   const T(
     String? data, {
+    super.key,
     TextStyle? s,
-    TextAlign? textAlign,
-    bool? softWrap,
-    int? maxLines,
-    TextOverflow? overflow,
-    Key? key,
+    super.textAlign,
+    super.softWrap,
+    super.maxLines,
+    super.overflow,
+    super.strutStyle,
+    super.textDirection,
+    super.locale,
+    super.textScaler,
+    super.semanticsLabel,
+    super.textWidthBasis,
+    super.textHeightBehavior,
+    super.selectionColor,
   }) : super(
           data ?? kNullText,
-          key: key,
-          maxLines: maxLines,
-          softWrap: softWrap,
-          textAlign: textAlign,
           style: s,
-          overflow: overflow,
         );
 }
