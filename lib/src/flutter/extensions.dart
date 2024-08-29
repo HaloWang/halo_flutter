@@ -84,3 +84,13 @@ extension HaloListSpan on List<InlineSpan> {
 }
 
 extension HaloString on String {}
+
+extension HaloTextStyle<S extends TextStyle> on S {
+  S cwc(Color? color) => copyWith(color: color) as S;
+
+  S cww(FontWeight? fontWeight) => copyWith(fontWeight: fontWeight) as S;
+
+  S cws(double? fontSize) => copyWith(fontSize: fontSize) as S;
+
+  S cwff(String? fontFamily) => copyWith(fontFamily: fontFamily) as S;
+}

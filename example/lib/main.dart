@@ -10,6 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ts0 = TextStyle();
+    final ts1 = TS();
+    final ts00 = ts0.cwc(kW);
+    final ts10 = ts1.cwc(kW);
+
     return const MaterialApp(
       home: Scaffold(
         body: Center(
