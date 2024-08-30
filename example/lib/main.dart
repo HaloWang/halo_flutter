@@ -15,6 +15,10 @@ class MainApp extends StatelessWidget {
     final ts00 = ts0.cwc(kW);
     final ts10 = ts1.cwc(kW);
 
+    final s = ["", null];
+    final z = s.withoutNull;
+    final m = z.withoutNull;
+
     return const MaterialApp(
       home: Scaffold(
         body: Center(

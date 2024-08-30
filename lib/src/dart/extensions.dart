@@ -126,6 +126,15 @@ extension HaloDartList<T> on List<T> {
     final prettyJson = encoder.convert(this);
     return prettyJson;
   }
+
+  List<T> get shuffled => [...this..shuffle()];
+}
+
+extension HaloDartListNull<T> on List<T?> {
+  List<T> get withoutNull {
+    final s = where((e) => e != null).m((e) => e!);
+    return [...s];
+  }
 }
 
 extension HaloDartListString on List<String> {
