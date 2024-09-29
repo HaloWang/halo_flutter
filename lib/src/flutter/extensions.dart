@@ -94,3 +94,10 @@ extension HaloTextStyle<S extends TextStyle> on S {
 
   S cwff(String? fontFamily) => copyWith(fontFamily: fontFamily) as S;
 }
+
+extension HaloEdgeInsets on EdgeInsets {
+  double get l => left;
+  double get r => right;
+  double get t => top;
+  double get b => bottom;
+}

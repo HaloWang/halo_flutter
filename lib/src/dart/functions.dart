@@ -18,7 +18,7 @@ abstract class HF {
     try {
       return list(object).mv;
     } catch (e) {
-      throw "Target is now List";
+      throw "Enement in list is not Map";
     }
   }
 
@@ -26,7 +26,7 @@ abstract class HF {
     try {
       return object as List;
     } catch (e) {
-      throw "Target is now List";
+      throw "Target is not List";
     }
   }
 
@@ -35,6 +35,10 @@ abstract class HF {
     int max = 9999999,
   }) {
     return _rnd.nextInt(max - min + 1) + min;
+  }
+
+  static int randomMax(int max) {
+    return _rnd.nextInt(max + 1);
   }
 
   static String randomString({
