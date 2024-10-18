@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 import 'package:halo/src/dart/functions.dart';
+import 'package:halo/src/dart/typedef.dart';
 
 extension HaloDartNumT<T extends num> on T {
   T squeeze(T min, T max) {
@@ -113,9 +114,19 @@ extension HaloDartList<T> on List<T> {
     }
   }
 
+  /// Map value
   List<Map> get mv {
     try {
       return map((e) => e as Map).toList();
+    } catch (e) {
+      throw "Element is not Map";
+    }
+  }
+
+  /// JSON value
+  List<JSON> get jv {
+    try {
+      return mv.m((e) => e.map((k, v) => MapEntry(k.toString(), v)));
     } catch (e) {
       throw "Element is not Map";
     }

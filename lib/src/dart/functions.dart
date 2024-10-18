@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:halo/src/dart/extensions.dart';
+import 'package:halo/src/dart/typedef.dart';
 
 abstract class HF {
   static final _rnd = Random();
@@ -19,6 +20,34 @@ abstract class HF {
       return list(object).mv;
     } catch (e) {
       throw "Enement in list is not Map";
+    }
+  }
+
+  static List<JSON> listJSON(Object? object) {
+    try {
+      final r = list(object).jv;
+      return r;
+    } catch (e) {
+      throw "Enement in list is not JSON";
+    }
+  }
+
+  /// Map<dynamic, dynamic> to Map<String, dynamic>
+  static JSON json(Map object) {
+    try {
+      final r = object.map((k, v) => MapEntry(k.toString(), v));
+      return r;
+    } catch (e) {
+      throw "Target is not JSON";
+    }
+  }
+
+  static List<JSON> jsonArray(Object? object) {
+    try {
+      final r = listMap(object).map((e) => json(e));
+      return r.toList();
+    } catch (e) {
+      throw "Target is not JSON Array";
     }
   }
 
@@ -44,7 +73,7 @@ abstract class HF {
   static String randomString({
     int min = 1,
     int max = 2000,
-    double spacingRate = 0.05,
+    double spacingRate = 0.20,
     String? template,
   }) {
     if (template != null && template.isNotEmpty) {

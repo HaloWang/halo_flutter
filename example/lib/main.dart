@@ -2,7 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
 
 void main() {
+  _test();
   runApp(const MainApp());
+}
+
+void _test() {
+  final source = {
+    "a": 1,
+    2: "3",
+  };
+  final json = HF.json(source);
+  print(json);
+
+  final list = [
+    {"a": 1},
+    {2: 3, "2": 4},
+  ];
+  final jsonArray = HF.jsonArray(list);
+  print(jsonArray);
 }
 
 class MainApp extends StatelessWidget {
@@ -10,19 +27,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ts0 = TextStyle();
-    final ts1 = TS();
-    final ts00 = ts0.cwc(kW);
-    final ts10 = ts1.cwc(kW);
-
-    final s = ["", null];
-    final z = s.withoutNull;
-    final m = z.withoutNull;
-
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Center(
           child: Text('Hello World!'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _test,
+          child: Text('Test'),
         ),
       ),
     );
