@@ -38,7 +38,7 @@ abstract class HF {
       final r = object.map((k, v) => MapEntry(k.toString(), v));
       return r;
     } catch (e) {
-      throw "Target is not JSON";
+      throw "Target is not JSON:\n$e\n$object";
     }
   }
 
@@ -47,7 +47,7 @@ abstract class HF {
       final r = listMap(object).map((e) => json(e));
       return r.toList();
     } catch (e) {
-      throw "Target is not JSON Array";
+      throw "Target is not JSON Array:\n$e\n$object";
     }
   }
 
@@ -55,7 +55,7 @@ abstract class HF {
     try {
       return object as List;
     } catch (e) {
-      throw "Target is not List";
+      throw "Target is not List:\n$e\n$object";
     }
   }
 
