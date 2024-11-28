@@ -1,3 +1,7 @@
+## 0.1.0
+
+- Add `Debouncer`
+
 ## 0.0.24
 
 - New API added.
