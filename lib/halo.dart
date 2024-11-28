@@ -4,6 +4,7 @@ library halo;
 export 'src/dart/extensions.dart';
 export 'src/dart/functions.dart';
 export 'src/dart/typedef.dart';
+export 'src/dart/debouncer.dart';
 export 'src/flutter/class.dart';
 export 'src/flutter/const.dart';
 export 'src/flutter/extensions.dart';
