@@ -93,6 +93,8 @@ extension HaloTextStyle<S extends TextStyle> on S {
   S cws(double? fontSize) => copyWith(fontSize: fontSize) as S;
 
   S cwff(String? fontFamily) => copyWith(fontFamily: fontFamily) as S;
+
+  S cwh(double? height) => copyWith(height: height) as S;
 }
 
 extension HaloEdgeInsets on EdgeInsets {

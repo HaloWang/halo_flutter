@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Add `cwh` to `TextStyle`.
+
 ## 0.1.1
 
 - Add `Debouncer` to interface file.
