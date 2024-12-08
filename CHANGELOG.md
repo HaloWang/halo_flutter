@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Adjust the implementation of `codeToName` in `HaloDartString`.
+
 ## 0.1.2
 
 - Add `cwh` to `TextStyle`.

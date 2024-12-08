@@ -312,10 +312,43 @@ extension HaloDartString on String {
     return subSequence;
   }
 
+  /// Convert code to name
+  ///
+  /// snake_case -> Title Case
+  ///
+  /// camelCase -> Title Case
   String get codeToName {
-    final firstUpper = this[0].toUpperCase() + substring(1);
-    final regexp = RegExp(r'(?<=[a-z])(?=[A-Z])');
-    final addSpacing = firstUpper.split(regexp).join(" ");
-    return addSpacing;
+    if (isEmpty) return "";
+
+    String formatted = this;
+
+    while (formatted.contains("__")) {
+      formatted = formatted.replaceAll("__", "_");
+    }
+
+    // Convert snake_case to words
+    formatted = formatted.replaceAllMapped(RegExp(r'_([a-z])'), (match) {
+      return ' ${match[1]!.toUpperCase()}';
+    });
+
+    formatted = formatted.replaceAllMapped(RegExp(r'([A-z])_'), (match) {
+      return '${match[1]} ';
+    });
+
+    // Convert camelCase to words
+    formatted = formatted.replaceAllMapped(RegExp(r'([a-z])([A-Z])'), (match) {
+      return '${match[1]} ${match[2]}';
+    });
+
+    formatted = formatted.replaceAllMapped(RegExp(r'([A-Z])([A-Z])([a-z])'), (match) {
+      return '${match[1]} ${match[2]}${match[3]}';
+    });
+
+    // Capitalize the first letter of each word
+    formatted = formatted.split(' ').map((word) {
+      return word[0].toUpperCase() + word.substring(1);
+    }).join(' ');
+
+    return formatted;
   }
 }
