@@ -1,3 +1,7 @@
+## 0.1.4
+
+- Add `number` to `HF`.
+
 ## 0.1.3
 
 - Adjust the implementation of `codeToName` in `HaloDartString`.

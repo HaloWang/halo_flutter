@@ -59,6 +59,13 @@ abstract class HF {
     }
   }
 
+  static num? number(Object? value) {
+    if (value is num) return value;
+    if (value is int) return value;
+    if (value is String) return num.tryParse(value);
+    throw "Target is not Number:\n$value";
+  }
+
   static int randomInt({
     int min = 1,
     int max = 9999999,
