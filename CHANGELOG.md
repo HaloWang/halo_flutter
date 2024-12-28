@@ -1,3 +1,8 @@
+## 0.1.5
+
+- Update `randomString` to `HF`.
+- Add `randomString` test.
+
 ## 0.1.4
 
 - Add `number` to `HF`.

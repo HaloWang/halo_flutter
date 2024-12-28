@@ -91,17 +91,26 @@ abstract class HF {
     }
     final fixed = max <= min;
     final length = fixed ? min : _rnd.nextInt(max - min) + min;
-    var useSpace = _rnd.nextDouble() < spacingRate;
+    final enableSpaceTrimming = length >= 2;
+    // var useSpace = _rnd.nextDouble() < spacingRate;
+    bool previousUseSpace = false;
     final codes = Iterable.generate(length, (index) {
-      final notHead = index != 0;
-      final notTail = index <= length - 1;
-      useSpace = !useSpace && _rnd.nextDouble() < spacingRate;
-      if (useSpace && notHead && notTail) {
+      final isHead = index == 0;
+      final isTail = index == length - 1;
+      final useSpace = !previousUseSpace && _rnd.nextDouble() < spacingRate;
+      previousUseSpace = useSpace;
+
+      // If length is bigger or equal to 2, use space trimming, no space at head and tail
+      if (useSpace && enableSpaceTrimming && !isHead && !isTail) {
         return _codeSpacing;
-      } else {
-        return _chars.codeUnitAt(_rnd.nextInt(_chars.length));
       }
+      // If length is smaller than 2, use space trimming, allow space at head and tail
+      if (useSpace && !enableSpaceTrimming) {
+        return _codeSpacing;
+      }
+      return _chars.codeUnitAt(_rnd.nextInt(_chars.length));
     });
+
     final r = String.fromCharCodes(codes);
     return r;
   }
