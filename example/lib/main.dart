@@ -1,9 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
 
 void main() {
-  _test();
-  runApp(const MainApp());
+  _testEventDistributor();
+  runApp(const _App());
+}
+
+void _testEventDistributor() {
+  EventDistributor eventDistributor = EventDistributor(const Duration(milliseconds: 100));
+  for (int i = 0; i < 100; i++) {
+    eventDistributor.addEvent(() {
+      if (kDebugMode) print('event $i');
+    });
+  }
 }
 
 void _test() {
@@ -22,8 +32,8 @@ void _test() {
   print(jsonArray);
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class _App extends StatelessWidget {
+  const _App();
 
   @override
   Widget build(BuildContext context) {

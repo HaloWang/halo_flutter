@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Add `EventDistributor` to distribute events.
+
 ## 0.1.5
 
 - Update `randomString` to `HF`.
