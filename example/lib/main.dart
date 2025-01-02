@@ -14,6 +14,10 @@ void _testEventDistributor() {
       if (kDebugMode) print('event $i');
     });
   }
+
+  Future.delayed(const Duration(milliseconds: 1000), () {
+    eventDistributor.executeAllRemaining();
+  });
 }
 
 void _test() {

@@ -26,4 +26,14 @@ class EventDistributor {
       event(); // Execute the event
     });
   }
+
+  void executeAllRemaining() {
+    if (_eventQueue.isEmpty) return;
+
+    _timer?.cancel();
+    while (_eventQueue.isNotEmpty) {
+      final event = _eventQueue.removeFirst();
+      event();
+    }
+  }
 }

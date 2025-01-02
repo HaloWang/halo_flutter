@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Add `executeAllRemaining` to `EventDistributor`.
+
 ## 0.2.0
 
 - Add `EventDistributor` to distribute events.
