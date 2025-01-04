@@ -1,3 +1,8 @@
+## 0.2.3
+
+- Add `GestureDetectorLocation` to get the position of the tap or long press.
+- Add `getPosition` to get the position of the widget.
+
 ## 0.2.1
 
 - Add `executeAllRemaining` to `EventDistributor`.
