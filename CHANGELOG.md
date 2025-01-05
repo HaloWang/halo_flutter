@@ -1,3 +1,7 @@
+## 0.2.4
+
+- Add `kDebugging` to check if the application is in debug mode.
+
 ## 0.2.3
 
 - Add `GestureDetectorLocation` to get the position of the tap or long press.

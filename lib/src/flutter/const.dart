@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
 
 const kW = Colors.white;
@@ -18,3 +19,5 @@ const kCG = Colors.green;
 
 /// Yellow
 const kCY = Colors.yellow;
+
+const kDebugging = foundation.kDebugMode;
