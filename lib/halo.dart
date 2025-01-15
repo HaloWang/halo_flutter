@@ -2,6 +2,7 @@
 library halo;
 
 export 'src/dart/debouncer.dart';
+export 'src/dart/throttler.dart';
 export 'src/dart/event_distributer.dart';
 export 'src/dart/extensions.dart';
 export 'src/dart/functions.dart';

@@ -1,10 +1,27 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
 
 void main() {
-  _testEventDistributor();
+  // _testEventDistributor();
+  // _testThrottler();
   runApp(const _App());
+}
+
+final throttler = Throttler(milliseconds: 100);
+
+void _testThrottler() async {
+  if (kDebugMode) print("💬 _testThrottler start");
+  for (int i = 0; i < 10000; i++) {
+    await HF.wait(10);
+    throttler.run(() {
+      if (kDebugMode) print('event $i');
+    });
+  }
+  // await HF.wait(1000);
+  // if (kDebugMode) print("💬 _testThrottler done");
 }
 
 void _testEventDistributor() {
@@ -21,19 +38,9 @@ void _testEventDistributor() {
 }
 
 void _test() {
-  final source = {
-    "a": 1,
-    2: "3",
-  };
-  final json = HF.json(source);
-  print(json);
-
-  final list = [
-    {"a": 1},
-    {2: 3, "2": 4},
-  ];
-  final jsonArray = HF.jsonArray(list);
-  print(jsonArray);
+  if (kDebugMode) print("💬 _test start");
+  _testThrottler();
+  if (kDebugMode) print("💬 _test done");
 }
 
 class _App extends StatelessWidget {

@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Add `Throttler` to throttle events.
+
 ## 0.2.4
 
 - Add `kDebugging` to check if the application is in debug mode.

@@ -8,10 +8,11 @@ class Debouncer {
   Debouncer({required this.milliseconds});
 
   void run(void Function() action) {
-    _timer?.cancel(); // 取消之前的定时器
+    final duration = Duration(milliseconds: milliseconds);
+    _timer?.cancel();
     _action = action;
-    _timer = Timer(Duration(milliseconds: milliseconds), () {
-      _action?.call(); // 在延迟后执行动作
+    _timer = Timer(duration, () {
+      _action?.call();
     });
   }
 }
