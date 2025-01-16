@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Make `index` in `Iterable.get` optional.
+
 ## 0.3.0
 
 - Add `Throttler` to throttle events.

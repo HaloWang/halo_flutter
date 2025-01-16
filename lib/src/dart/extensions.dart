@@ -52,7 +52,8 @@ extension HaloDartIterable<T> on Iterable<T> {
     return toList(growable: false)[index];
   }
 
-  T? get(int index) {
+  T? get(int? index) {
+    if (index == null) return null;
     if (isEmpty) return null;
     if (length <= index) return null;
     if (this is List) return (this as List)[index];
@@ -63,7 +64,7 @@ extension HaloDartIterable<T> on Iterable<T> {
     if (isEmpty) return null;
     if (length == 1) return first;
     final index = HF.randomInt(min: 0, max: length - 1);
-    return getIndex(index);
+    return get(index);
   }
 }
 
@@ -150,7 +151,7 @@ extension HaloDartListNull<T> on List<T?> {
 
 extension HaloDartListString on List<String> {
   /// Returns a list of strings where shorter substrings are removed if they are fully contained within longer strings.
-  /// 
+  ///
   /// Examples:
   /// ```dart
   /// ["a", "ab"] -> ["ab"]
@@ -159,16 +160,16 @@ extension HaloDartListString on List<String> {
   /// ["book", "books"] -> ["books"]
   /// ["ab", "bc"] -> ["ab", "bc"]  // Preserved because no containment relationship
   /// ```
-  /// 
+  ///
   /// Rules:
   /// - Single character strings are ignored as potential parents
   /// - Only removes strings that are completely contained within others
   /// - Preserves strings without parent/child relationships
   /// - Case-sensitive comparison
-  /// 
+  ///
   /// Limitations:
   /// - Does not handle overlapping relationships (e.g., ["abc", "bcd", "bc", "ac"])
-  /// 
+  ///
   /// Time Complexity: O(n²) where n is the length of the list
   List<String> get longestParentString {
     final wantedKeys = [...this];
