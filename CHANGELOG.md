@@ -1,3 +1,8 @@
+## 0.3.2
+
+- Add `call` to `Debouncer` and `Throttler`.
+- Deprecate `run` in `Debouncer` and `Throttler`.
+
 ## 0.3.1
 
 - Make `index` in `Iterable.get` optional.
