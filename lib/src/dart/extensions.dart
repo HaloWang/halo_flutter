@@ -140,6 +140,15 @@ extension HaloDartList<T> on List<T> {
   }
 
   List<T> get shuffled => [...this..shuffle()];
+
+  List<T> withoutIndex(int index) {
+    final result = [...this];
+    if (index < 0 || index >= length) {
+      return result;
+    }
+    result.removeAt(index);
+    return result;
+  }
 }
 
 extension HaloDartListNull<T> on List<T?> {

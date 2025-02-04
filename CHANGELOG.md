@@ -1,3 +1,7 @@
+## 0.3.3
+
+- Add `withoutIndex` to `List`.
+
 ## 0.3.2
 
 - Add `call` to `Debouncer` and `Throttler`.
