@@ -1,3 +1,7 @@
+## 0.3.4
+
+- Support trailing
+
 ## 0.3.3
 
 - Add `withoutIndex` to `List`.

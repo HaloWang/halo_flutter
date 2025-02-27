@@ -12,3 +12,4 @@ Add serveral extensions and function for my flutter development.
 2. Update version in `pubspec.yaml`
 3. Update `CHANGELOG.md`
 4. Run `flutter pub publish`
+5. `git add .;git add .;git add .;git commit -m 'New feature'; git fetch;`
