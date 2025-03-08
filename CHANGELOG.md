@@ -1,3 +1,8 @@
+## 0.3.5
+
+- Add new typedefs
+- Improve throw message
+
 ## 0.3.4
 
 - Support trailing

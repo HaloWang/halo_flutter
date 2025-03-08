@@ -120,7 +120,7 @@ extension HaloDartList<T> on List<T> {
     try {
       return map((e) => e as Map).toList();
     } catch (e) {
-      throw "Element is not Map";
+      throw "halo_flutter: Element is not Map";
     }
   }
 
@@ -129,7 +129,7 @@ extension HaloDartList<T> on List<T> {
     try {
       return mv.m((e) => e.map((k, v) => MapEntry(k.toString(), v)));
     } catch (e) {
-      throw "Element is not Map";
+      throw "halo_flutter: Element is not Map";
     }
   }
 

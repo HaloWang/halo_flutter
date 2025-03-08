@@ -19,7 +19,7 @@ abstract class HF {
     try {
       return list(object).mv;
     } catch (e) {
-      throw "Enement in list is not Map";
+      throw "halo_flutter: Enement in list is not Map";
     }
   }
 
@@ -28,7 +28,7 @@ abstract class HF {
       final r = list(object).jv;
       return r;
     } catch (e) {
-      throw "Enement in list is not JSON";
+      throw "halo_flutter: Enement in list is not JSON";
     }
   }
 
@@ -38,7 +38,7 @@ abstract class HF {
       final r = object.map((k, v) => MapEntry(k.toString(), v));
       return r;
     } catch (e) {
-      throw "Target is not JSON:\n$e\n$object";
+      throw "halo_flutter: Target is not JSON:\n$e\n$object";
     }
   }
 
@@ -47,7 +47,7 @@ abstract class HF {
       final r = listMap(object).map((e) => json(e));
       return r.toList();
     } catch (e) {
-      throw "Target is not JSON Array:\n$e\n$object";
+      throw "halo_flutter: Target is not JSON Array:\n$e\n$object";
     }
   }
 
@@ -55,7 +55,7 @@ abstract class HF {
     try {
       return object as List;
     } catch (e) {
-      throw "Target is not List:\n$e\n$object";
+      throw "halo_flutter: Target is not List:\n$e\n$object";
     }
   }
 
@@ -63,7 +63,7 @@ abstract class HF {
     if (value is num) return value;
     if (value is int) return value;
     if (value is String) return num.tryParse(value);
-    throw "Target is not Number:\n$value";
+    throw "halo_flutter: Target is not Number:\n$value";
   }
 
   static int randomInt({
