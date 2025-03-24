@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:halo/halo.dart';
+import 'package:halo/src/flutter/widgets/rect_debugger.dart';
 
 extension HaloNumT<T extends num> on T {
   BorderRadius get r => BorderRadius.circular(toDouble());
@@ -102,4 +103,15 @@ extension HaloEdgeInsets on EdgeInsets {
   double get r => right;
   double get t => top;
   double get b => bottom;
+}
+
+extension WidgetDebugger on Widget {
+  Widget get debug {
+    if (!kDebugMode) return this;
+    return RectDebugger(child: this);
+  }
+
+  Widget get debugq {
+    return this;
+  }
 }

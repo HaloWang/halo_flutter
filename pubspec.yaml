@@ -1,6 +1,6 @@
 name: halo
 description: Personal flutter all-in-one package.
-version: 0.3.5
+version: 0.3.6
 homepage: https://github.com/HaloWang/halo_flutter
 
 environment:
@@ -8,13 +8,14 @@ environment:
   flutter: '>=1.17.0'
 
 dependencies:
-  collection: ^1.18.0
   flutter:
     sdk: flutter
+
+  collection:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints:
 
 flutter:

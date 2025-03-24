@@ -1,3 +1,7 @@
+## 0.3.6
+
+Introduce `WidgetDebugger` extension for enhanced widget debugging.
+
 ## 0.3.5
 
 - Add new typedefs
