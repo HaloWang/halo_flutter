@@ -2,10 +2,11 @@
 library halo;
 
 export 'src/dart/debouncer.dart';
-export 'src/dart/throttler.dart';
 export 'src/dart/event_distributer.dart';
 export 'src/dart/extensions.dart';
 export 'src/dart/functions.dart';
+export 'src/dart/q.dart';
+export 'src/dart/throttler.dart';
 export 'src/dart/typedef.dart';
 export 'src/flutter/class.dart';
 export 'src/flutter/const.dart';

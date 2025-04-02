@@ -66,6 +66,11 @@ extension HaloDartIterable<T> on Iterable<T> {
     final index = HF.randomInt(min: 0, max: length - 1);
     return get(index);
   }
+
+  Iterable<T> randomCount(int count) {
+    final copy = List<T>.from(this)..shuffle();
+    return copy.take(count);
+  }
 }
 
 extension HaloDartList<T> on List<T> {

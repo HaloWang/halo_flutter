@@ -46,6 +46,17 @@ void _test() {
 class _App extends StatelessWidget {
   const _App();
 
+  void _test2() {
+    qq;
+    qw;
+    qe;
+    qr;
+    qqq("hello");
+    qqw("hello");
+    qqe("hello");
+    qqr("hello");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -54,7 +65,7 @@ class _App extends StatelessWidget {
           child: Text('Hello World!'),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _test,
+          onPressed: _test2,
           child: Text('Test'),
         ),
       ),

@@ -1,3 +1,7 @@
+## 0.4.0
+
+Add new log functions.
+
 ## 0.3.6
 
 Introduce `WidgetDebugger` extension for enhanced widget debugging.
