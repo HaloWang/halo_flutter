@@ -1,3 +1,7 @@
+## 0.4.1
+
+Enhance WidgetDebugger to handle Spacer widget with a warning message
+
 ## 0.4.0
 
 Add new log functions.

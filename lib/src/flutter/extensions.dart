@@ -108,6 +108,10 @@ extension HaloEdgeInsets on EdgeInsets {
 extension WidgetDebugger on Widget {
   Widget get debug {
     if (!kDebugMode) return this;
+    if (runtimeType == Spacer) {
+      qqw("WidgetDebugger.debug: Spacer is not supported");
+      return this;
+    }
     return RectDebugger(child: this);
   }
 
