@@ -2,4 +2,5 @@ example/android/* linguist-vendored
 example/ios/* linguist-vendored
 example/web/* linguist-vendored
 example/macos/* linguist-vendored
+example/**/* linguist-vendored
 *.lock  linguist-vendored
