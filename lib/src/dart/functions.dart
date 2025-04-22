@@ -123,21 +123,29 @@ abstract class HF {
     return next;
   }
 
-  /// µs, microseconds since 2025-04-22 00:00:00
-  static int get shorterUS => DateTime.now().microsecondsSinceEpoch - 1745251200000000;
+  // TODO: 要是能注入 Debug 时间就最好了
 
-  /// ms, milliseconds since 2025-04-22 00:00:00
-  static int get shorterMS => DateTime.now().millisecondsSinceEpoch - 1745251200000;
+  static int get microseconds => DateTime.now().microsecondsSinceEpoch;
 
-  /// s, seconds since 2025-04-22 00:00:00
-  static int get shorterS => DateTime.now().second - 1745251200;
+  static int get milliseconds => DateTime.now().millisecondsSinceEpoch;
 
-  /// µs, microseconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
-  static int get debugShorterUS => kDebugMode ? shorterUS : DateTime.now().microsecondsSinceEpoch;
+  static int get seconds => DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-  /// ms, milliseconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
-  static int get debugShorterMS => kDebugMode ? shorterMS : DateTime.now().millisecondsSinceEpoch;
+  /// µs, microseconds since 2025-04-22 14:30:00 (GMT+8)
+  static int get shorterUS => microseconds - 1745303400000000;
 
-  /// s, seconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
-  static int get debugShorterS => kDebugMode ? shorterS : DateTime.now().second;
+  /// ms, milliseconds since 2025-04-22 14:30:00 (GMT+8)
+  static int get shorterMS => milliseconds - 1745303400000;
+
+  /// s, seconds since 2025-04-22 14:30:00
+  static int get shorterS => seconds - 1745303400;
+
+  /// µs, microseconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
+  static int get debugShorterUS => kDebugMode ? shorterUS : microseconds;
+
+  /// ms, milliseconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
+  static int get debugShorterMS => kDebugMode ? shorterMS : milliseconds;
+
+  /// s, seconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
+  static int get debugShorterS => kDebugMode ? shorterS : seconds;
 }

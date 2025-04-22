@@ -1,3 +1,11 @@
+## 0.6.0
+
+- Add new time-related static getters in HF class for microseconds, milliseconds, and seconds since a specific date, including debug mode handling.
+
+## 0.5.0
+
+- Add new time-related static getters in HF class for microseconds, milliseconds, and seconds since a specific date, with debug mode handling
+
 ## 0.4.1
 
 Enhance WidgetDebugger to handle Spacer widget with a warning message
