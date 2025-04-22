@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:halo/src/dart/extensions.dart';
 import 'package:halo/src/dart/typedef.dart';
 
@@ -121,4 +122,22 @@ abstract class HF {
     final next = _rnd.nextDouble() < percentage;
     return next;
   }
+
+  /// µs, microseconds since 2025-04-22 00:00:00
+  static int get shorterUS => DateTime.now().microsecondsSinceEpoch - 1745251200000000;
+
+  /// ms, milliseconds since 2025-04-22 00:00:00
+  static int get shorterMS => DateTime.now().millisecondsSinceEpoch - 1745251200000;
+
+  /// s, seconds since 2025-04-22 00:00:00
+  static int get shorterS => DateTime.now().second - 1745251200;
+
+  /// µs, microseconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
+  static int get debugShorterUS => kDebugMode ? shorterUS : DateTime.now().microsecondsSinceEpoch;
+
+  /// ms, milliseconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
+  static int get debugShorterMS => kDebugMode ? shorterMS : DateTime.now().millisecondsSinceEpoch;
+
+  /// s, seconds since 2025-04-22 00:00:00 in debug mode, otherwise since 1970
+  static int get debugShorterS => kDebugMode ? shorterS : DateTime.now().second;
 }
