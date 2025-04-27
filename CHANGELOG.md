@@ -1,3 +1,7 @@
+## 0.6.1
+
+- Add method `q` for `Color`
+
 ## 0.6.0
 
 - Add new time-related static getters in HF class for microseconds, milliseconds, and seconds since a specific date, including debug mode handling.
