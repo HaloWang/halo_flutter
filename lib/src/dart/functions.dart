@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:halo/src/dart/extensions.dart';
@@ -16,8 +17,7 @@ abstract class HF {
   // TODO: Finish this
   static final _json = _JSON();
 
-  // TODO: Finish this
-  static final _random = _Random();
+  static final random = _Random();
 
   /// Wait milliseconds
   static Future<void> wait(int ms) {
@@ -162,4 +162,57 @@ class _Number {
 
 class _JSON {}
 
-class _Random {}
+class _Random {
+  final color = _RandomColor();
+}
+
+class _RandomColor {
+  static final _rnd = Random();
+
+  Color get q => Color.fromARGB(
+        _rnd.nextInt(0xFF),
+        _rnd.nextInt(0xFF),
+        _rnd.nextInt(0xFF),
+        _rnd.nextInt(0xFF),
+      );
+
+  Color get vivid {
+    final channel = _rnd.nextInt(3);
+    final dim = _rnd.nextInt(2);
+    late final int r, g, b;
+    if (channel == 0) {
+      r = 0xFF;
+      if (dim == 0) {
+        g = 0x00;
+        b = _rnd.nextInt(0xFF);
+      } else {
+        g = _rnd.nextInt(0xFF);
+        b = 0x00;
+      }
+    } else if (channel == 1) {
+      g = 0xFF;
+      if (dim == 0) {
+        r = 0x00;
+        b = _rnd.nextInt(0xFF);
+      } else {
+        r = _rnd.nextInt(0xFF);
+        b = 0x00;
+      }
+    } else {
+      b = 0xFF;
+      if (dim == 0) {
+        r = 0x00;
+        g = _rnd.nextInt(0xFF);
+      } else {
+        r = _rnd.nextInt(0xFF);
+        g = 0x00;
+      }
+    }
+    return Color.fromARGB(
+      0xFF,
+      r,
+      g,
+      b,
+    );
+  }
+}

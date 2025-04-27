@@ -76,16 +76,20 @@ class _AppState extends State<_App> {
     qqr(r6);
     const r7 = 0x00 == 0;
     qqr(r7);
+    // _color = HF.random.color.vivid;
+    _color = HF.random.color.q.q(0xFF);
+    qqr(_color);
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: kCR,
+      color: kB,
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
-        backgroundColor: kCR,
+        backgroundColor: kB,
         body: Center(
           child: C(
             height: 100,

@@ -22,7 +22,14 @@ extension HaloColor on Color {
   Color wo(double opacity) => withOpacity(opacity);
 
   /// Shortcut for "with opacity"
-  Color q(double opacity) => withValues(alpha: a * opacity);
+  ///
+  /// ### Example
+  ///
+  /// ```dart
+  /// const color = Colors.white;
+  /// final colorWithOpacity = color.q(.5);
+  /// ```
+  Color q(double alpha) => withValues(alpha: alpha);
 }
 
 extension HaloMap<K, V> on Map<K, V> {
