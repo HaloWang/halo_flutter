@@ -180,39 +180,40 @@ class _RandomColor {
     final channel = _rnd.nextInt(3);
     final dim = _rnd.nextInt(2);
     late final int r, g, b;
+    final dynamicValue = _rnd.nextInt(0xFF);
+
     if (channel == 0) {
-      r = 0xFF;
       if (dim == 0) {
+        r = 0xFF;
         g = 0x00;
-        b = _rnd.nextInt(0xFF);
+        b = dynamicValue;
       } else {
-        g = _rnd.nextInt(0xFF);
+        r = 0xFF;
+        g = dynamicValue;
         b = 0x00;
       }
     } else if (channel == 1) {
-      g = 0xFF;
       if (dim == 0) {
         r = 0x00;
-        b = _rnd.nextInt(0xFF);
+        g = 0xFF;
+        b = dynamicValue;
       } else {
-        r = _rnd.nextInt(0xFF);
+        r = dynamicValue;
+        g = 0xFF;
         b = 0x00;
       }
     } else {
-      b = 0xFF;
       if (dim == 0) {
         r = 0x00;
-        g = _rnd.nextInt(0xFF);
+        g = dynamicValue;
+        b = 0xFF;
       } else {
-        r = _rnd.nextInt(0xFF);
+        r = dynamicValue;
         g = 0x00;
+        b = 0xFF;
       }
     }
-    return Color.fromARGB(
-      0xFF,
-      r,
-      g,
-      b,
-    );
+
+    return Color.fromARGB(0xFF, r, g, b);
   }
 }

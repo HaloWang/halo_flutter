@@ -1,3 +1,9 @@
+## 0.6.2
+
+- Enhance color handling by introducing a new `_RandomColor` class for generating random colors.
+- Improve the `HaloColor` extension with an example for the opacity shortcut method.
+- Bug fixed.
+
 ## 0.6.1
 
 - Add method `q` for `Color`
