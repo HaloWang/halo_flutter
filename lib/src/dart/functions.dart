@@ -11,6 +11,14 @@ abstract class HF {
 
   static final _codeSpacing = " ".codeUnits[0];
 
+  static final number = _Number();
+
+  // TODO: Finish this
+  static final _json = _JSON();
+
+  // TODO: Finish this
+  static final _random = _Random();
+
   /// Wait milliseconds
   static Future<void> wait(int ms) {
     return Future.delayed(Duration(milliseconds: ms));
@@ -33,7 +41,7 @@ abstract class HF {
     }
   }
 
-  /// Map<dynamic, dynamic> to Map<String, dynamic>
+  /// [Map<dynamic, dynamic>] to [Map<String, dynamic>]
   static JSON json(Map object) {
     try {
       final r = object.map((k, v) => MapEntry(k.toString(), v));
@@ -58,13 +66,6 @@ abstract class HF {
     } catch (e) {
       throw "halo_flutter: Target is not List:\n$e\n$object";
     }
-  }
-
-  static num? number(Object? value) {
-    if (value is num) return value;
-    if (value is int) return value;
-    if (value is String) return num.tryParse(value);
-    throw "halo_flutter: Target is not Number:\n$value";
   }
 
   static int randomInt({
@@ -149,3 +150,16 @@ abstract class HF {
   /// s, seconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
   static int get debugShorterS => kDebugMode ? shorterS : seconds;
 }
+
+class _Number {
+  num? from(Object? value) {
+    if (value is num) return value;
+    if (value is int) return value;
+    if (value is String) return num.tryParse(value);
+    throw "halo_flutter: Target is not Number:\n$value";
+  }
+}
+
+class _JSON {}
+
+class _Random {}

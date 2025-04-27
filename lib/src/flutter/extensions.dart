@@ -18,7 +18,11 @@ extension HaloNumT<T extends num> on T {
 }
 
 extension HaloColor on Color {
+  @Deprecated("Use `q` instead")
   Color wo(double opacity) => withOpacity(opacity);
+
+  /// Shortcut for "with opacity"
+  Color q(double opacity) => withValues(alpha: a * opacity);
 }
 
 extension HaloMap<K, V> on Map<K, V> {

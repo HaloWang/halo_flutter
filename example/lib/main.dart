@@ -43,24 +43,59 @@ void _test() {
   if (kDebugMode) print("💬 _test done");
 }
 
-class _App extends StatelessWidget {
+class _App extends StatefulWidget {
   const _App();
 
-  void _test2() {
+  @override
+  State<_App> createState() => _AppState();
+}
+
+class _AppState extends State<_App> {
+  Color? _color;
+
+  void _testUSMSS() {
     qqq("HF.debugShorterUS: ${HF.debugShorterUS}");
     qqq("HF.debugShorterMS: ${HF.debugShorterMS}");
     qqq("HF.debugShorterS: ${HF.debugShorterS}");
   }
 
+  void _testHFFunctions() {
+    const r0 = 0xFF;
+    qqr(r0);
+    const r1 = 0x80;
+    qqr(r1);
+    const r2 = 0x00;
+    qqr(r2);
+    final r3 = Color.from(alpha: 1, red: 1, green: 1, blue: 1);
+    qqr(r3);
+    final r4 = Color.fromARGB(255, 255, 255, 255);
+    qqr(r4);
+    const r5 = 0xFF == 255;
+    qqr(r5);
+    const r6 = 0x80 == 128;
+    qqr(r6);
+    const r7 = 0x00 == 0;
+    qqr(r7);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: kCR,
+      theme: ThemeData.light(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
+        backgroundColor: kCR,
         body: Center(
-          child: Text('Hello World!'),
+          child: C(
+            height: 100,
+            width: 100,
+            decoration: BD(color: _color),
+            child: Text('Hello World!'),
+          ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _test2,
+          onPressed: _testHFFunctions,
           child: Text('Test'),
         ),
       ),
