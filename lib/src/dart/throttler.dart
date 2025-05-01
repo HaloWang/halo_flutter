@@ -10,6 +10,8 @@ class Throttler {
   bool _isReady = true;
 
   Throttler({required this.milliseconds, this.trailing = false});
+  Throttler.ms(this.milliseconds, {this.trailing = false});
+  Throttler.duration(Duration duration, {this.trailing = false}) : milliseconds = duration.inMilliseconds;
 
   @Deprecated("Use call instead")
   void run(Function action) => call(action);

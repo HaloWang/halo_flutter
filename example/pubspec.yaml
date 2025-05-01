@@ -13,6 +13,9 @@ dependencies:
   halo:
     path: ../
 
+  halo_state:
+    path: ../../halo_state
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

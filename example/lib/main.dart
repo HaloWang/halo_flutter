@@ -1,13 +1,16 @@
 // ignore_for_file: unused_element
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:halo/halo.dart';
+import 'package:halo_state/halo_state.dart';
 
 void main() {
   // _testEventDistributor();
   // _testThrottler();
-  runApp(const _App());
+  runApp(StateWrapper(child: const _App()));
 }
 
 final throttler = Throttler(milliseconds: 100);
@@ -52,6 +55,7 @@ class _App extends StatefulWidget {
 
 class _AppState extends State<_App> {
   Color? _color;
+  final _throttler = Throttler(milliseconds: 97, trailing: true);
 
   void _testUSMSS() {
     qqq("HF.debugShorterUS: ${HF.debugShorterUS}");
@@ -82,6 +86,21 @@ class _AppState extends State<_App> {
     setState(() {});
   }
 
+  Future<void> _testFutureTimers() async {
+    qqr("START");
+    int i = 0;
+    final timer = Timer.periodic(103.ms, (timer) {
+      qqr("timer $i");
+      _throttler.call(() {
+        qqr("throttler $i");
+      });
+      i++;
+    });
+    await Future.delayed(const Duration(seconds: 3));
+    timer.cancel();
+    qqr("END");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -99,7 +118,7 @@ class _AppState extends State<_App> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: _testHFFunctions,
+          onPressed: _testFutureTimers,
           child: Text('Test'),
         ),
       ),
