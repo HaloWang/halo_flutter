@@ -1,3 +1,9 @@
+## 0.7.2
+
+## 0.7.1
+
+## 0.7.0
+
 ## 0.6.2
 
 - Enhance color handling by introducing a new `_RandomColor` class for generating random colors.

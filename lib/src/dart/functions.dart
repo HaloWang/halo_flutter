@@ -6,6 +6,16 @@ import 'package:halo/src/dart/extensions.dart';
 import 'package:halo/src/dart/typedef.dart';
 
 abstract class HF {
+  static late final int _initTimeS;
+  static late final int _initTimeMS;
+  static late final int _initTimeUS;
+
+  static void init() {
+    _initTimeS = HF.seconds;
+    _initTimeMS = HF.milliseconds;
+    _initTimeUS = HF.microseconds;
+  }
+
   static final _rnd = Random();
 
   static const _chars = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
@@ -132,22 +142,16 @@ abstract class HF {
 
   static int get seconds => DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-  /// µs, microseconds since 2025-04-22 14:30:00 (GMT+8)
-  static int get shorterUS => microseconds - 1745303400000000;
+  static int get shorterUS => microseconds - _initTimeUS;
 
-  /// ms, milliseconds since 2025-04-22 14:30:00 (GMT+8)
-  static int get shorterMS => milliseconds - 1745303400000;
+  static int get shorterMS => milliseconds - _initTimeMS;
 
-  /// s, seconds since 2025-04-22 14:30:00
-  static int get shorterS => seconds - 1745303400;
+  static int get shorterS => seconds - _initTimeS;
 
-  /// µs, microseconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
   static int get debugShorterUS => kDebugMode ? shorterUS : microseconds;
 
-  /// ms, milliseconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
   static int get debugShorterMS => kDebugMode ? shorterMS : milliseconds;
 
-  /// s, seconds since 2025-04-22 14:30:00 (GMT+8) in debug mode, otherwise since 1970
   static int get debugShorterS => kDebugMode ? shorterS : seconds;
 }
 

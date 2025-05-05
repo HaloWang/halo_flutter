@@ -1,6 +1,3 @@
-/// Person flutter dev kit.
-library halo;
-
 export 'src/dart/debouncer.dart';
 export 'src/dart/event_distributer.dart';
 export 'src/dart/extensions.dart';
