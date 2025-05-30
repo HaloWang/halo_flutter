@@ -4,6 +4,7 @@ import 'package:halo/halo.dart';
 /// ContinuousRectangleBorder
 ///
 /// ShapeDecoration
+@Deprecated("Use `ContinuousRectangleBorder` instead")
 class CRBSD extends ShapeDecoration {
   CRBSD({
     BorderRadiusGeometry? borderRadius,

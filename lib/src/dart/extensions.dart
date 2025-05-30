@@ -27,10 +27,6 @@ extension HaloDartDouble on double {
   double get withoutNegative => max(0.0, this);
 }
 
-extension HaloDartBool on bool {
-  get int => this ? 1 : 0;
-}
-
 extension HaloDartIterable<T> on Iterable<T> {
   List<R> indexMap<R>(
     R Function(int index, T value) convert, {
@@ -43,14 +39,6 @@ extension HaloDartIterable<T> on Iterable<T> {
     bool growable = false,
   }) =>
       toList(growable: growable).m(convert, growable: growable);
-
-  @Deprecated("Use get instead.")
-  T? getIndex(int index) {
-    if (isEmpty) return null;
-    if (length <= index) return null;
-    if (this is List) return (this as List)[index];
-    return toList(growable: false)[index];
-  }
 
   T? get(int? index) {
     if (index == null) return null;
@@ -375,5 +363,68 @@ extension HaloDartString on String {
     }).join(' ');
 
     return formatted;
+  }
+
+  /// 生成所有大小写组合
+  ///
+  /// Example: text 是 `abcdefg`
+  ///
+  /// - `Abcdefg`
+  /// - `AbcDefg`
+  /// - `AbcdeFg`
+  /// - `AbcdefG`
+  /// - `AbCdEfg`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  /// - `AbCdEfG`
+  List<String> get allCaseCombinations {
+    final result = <String>[];
+
+    void backtrack(String current, int index) {
+      if (index == length) {
+        result.add(current);
+        return;
+      }
+
+      // Try lowercase
+      backtrack(current + this[index].toLowerCase(), index + 1);
+
+      // Try uppercase
+      backtrack(current + this[index].toUpperCase(), index + 1);
+    }
+
+    backtrack('', 0);
+    return result;
+  }
+
+  /// 检查字符串是否包含中文字符
+  ///
+  /// Example:
+  ///
+  /// "你好" => true
+  /// "hello" => false
+  bool get containChinese {
+    // 正则表达式匹配 Unicode 范围 U+4E00 到 U+9FFF
+    // 这个范围包含了大多数常用的汉字
+    RegExp chineseRegex = RegExp(r'[\u4E00-\u9FFF]');
+
+    // 使用 hasMatch() 方法检查字符串是否包含匹配的字符
+    return chineseRegex.hasMatch(this);
+  }
+
+  /// 检查字符串是否为英文
+  ///
+  /// Example:
+  ///
+  /// "hello" => true
+  /// "你好" => false
+  bool get isEng {
+    if (isEmpty) return false;
+    return RegExp(r'^[a-zA-Z]+$').hasMatch(this);
   }
 }

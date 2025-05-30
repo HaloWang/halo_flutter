@@ -1,3 +1,10 @@
+## 0.8.0
+
+- refactor extensions and typedefs
+- remove unused extensions
+- add new string utilities for case combinations and Chinese character detection, and update typedefs for clarity
+- clean up color constants documentation in `const.dart`.
+
 ## 0.7.2
 
 ## 0.7.1

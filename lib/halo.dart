@@ -8,7 +8,6 @@ export 'src/dart/typedef.dart';
 export 'src/flutter/class.dart';
 export 'src/flutter/const.dart';
 export 'src/flutter/extensions.dart';
-export 'src/flutter/functions.dart';
 export 'src/flutter/get_position.dart';
 export 'src/flutter/typedef.dart';
 export 'src/flutter/widgets/co.dart';

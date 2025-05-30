@@ -1,23 +1,25 @@
-import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
 
+/// Colors.white
 const kW = Colors.white;
+
+/// Colors.black
 const kB = Colors.black;
+
+/// Color(0xFF808080)
 const kG = Color(0xFF808080);
 
 /// Colors.transparent
 const kC = Colors.transparent;
 
-/// Red
+/// Colors.red
 const kCR = Colors.red;
 
-/// Blue
+/// Colors.blue
 const kCB = Colors.blue;
 
-/// Green
+/// Colors.green
 const kCG = Colors.green;
 
-/// Yellow
+/// Colors.yellow
 const kCY = Colors.yellow;
-
-const kDebugging = foundation.kDebugMode;
