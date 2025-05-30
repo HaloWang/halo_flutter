@@ -25,6 +25,7 @@ abstract class HF {
   static final number = _Number();
 
   // TODO: Finish this
+  // ignore: unused_field
   static final _json = _JSON();
 
   static final random = _Random();
