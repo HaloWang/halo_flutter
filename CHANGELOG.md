@@ -1,3 +1,8 @@
+## 0.9.0
+
+- Add new method to HaloDartString extension for retrieving all isolated characters as a Set<String>
+- Mark Exp, Co, and Ro classes as deprecated in favor of their respective Flutter counterparts.
+
 ## 0.8.0
 
 - refactor extensions and typedefs
