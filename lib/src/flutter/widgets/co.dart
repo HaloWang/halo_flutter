@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@Deprecated("Use `Column` instead")
 class Co extends Column {
   const Co({
     required super.children,

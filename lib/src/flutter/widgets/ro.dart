@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@Deprecated("Use `Row` instead")
 class Ro extends Row {
   const Ro({
     required super.children,

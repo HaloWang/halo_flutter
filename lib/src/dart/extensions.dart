@@ -427,4 +427,23 @@ extension HaloDartString on String {
     if (isEmpty) return false;
     return RegExp(r'^[a-zA-Z]+$').hasMatch(this);
   }
+
+  /// 这个方法读取一个 `String`, 以 `Set<String>` 形式输出全部孤立字符
+  ///
+  /// 比如
+  ///
+  /// 输入, `"hello"` => `{"h", "e", "l", "o"}`
+  ///
+  /// 输入, `"你好"` => `{"你", "好"}`
+  ///
+  /// 输入, `"1234567890"` => `{"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}`
+  ///
+  /// 输入, `"I'm so happy to see you!"` => `{"I", "'", "m", " ", "s", "o", "h", "a", "p", "y", "t", "e", "u", "!"}`
+  Set<String> get allIsolatedChars {
+    final result = <String>{};
+    for (var i = 0; i < length; i++) {
+      result.add(this[i]);
+    }
+    return result;
+  }
 }

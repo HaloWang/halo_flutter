@@ -6,6 +6,7 @@ typedef BD = BoxDecoration;
 typedef BR = BorderRadius;
 typedef C = Container;
 typedef CAA = CrossAxisAlignment;
+@Deprecated("Use `Expanded` instead")
 typedef Exp = Expanded;
 typedef FW = FontWeight;
 typedef GD = GestureDetector;
