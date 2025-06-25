@@ -2,12 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class T extends Text {
-  static const String kNullText = kDebugMode ? "debug:null" : "";
+  static const String _debugNullString = kDebugMode ? "debug:null" : "";
 
   const T(
     String? data, {
-    super.key,
     TextStyle? s,
+    super.key,
     super.textAlign,
     super.softWrap,
     super.maxLines,
@@ -21,7 +21,7 @@ class T extends Text {
     super.textHeightBehavior,
     super.selectionColor,
   }) : super(
-          data ?? kNullText,
+          data ?? _debugNullString,
           style: s,
         );
 }

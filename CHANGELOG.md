@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Update version to 1.0.0
+
 ## 0.9.0
 
 - Add new method to HaloDartString extension for retrieving all isolated characters as a Set<String>
