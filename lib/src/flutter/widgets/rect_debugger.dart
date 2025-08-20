@@ -45,8 +45,8 @@ class _RectDebuggerState extends State<RectDebugger> {
 
     final frameColor = colors[HF.randomInt(min: 0, max: colors.length - 1)].wo(0.5);
 
-    return C(
-      decoration: BD(
+    return Container(
+      decoration: BoxDecoration(
         border: Border.all(color: frameColor, width: 0.5),
       ),
       child: widget.child,

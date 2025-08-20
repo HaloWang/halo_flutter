@@ -81,7 +81,8 @@ class _AppState extends State<_App> {
     const r7 = 0x00 == 0;
     qqr(r7);
     // _color = HF.random.color.vivid;
-    _color = HF.random.color.q.q(0xFF);
+    final _a = HF.random.color.q;
+    // _color = _a.q(1);
     qqr(_color);
     setState(() {});
   }
@@ -110,10 +111,10 @@ class _AppState extends State<_App> {
       home: Scaffold(
         backgroundColor: kB,
         body: Center(
-          child: C(
+          child: Container(
             height: 100,
             width: 100,
-            decoration: BD(color: _color),
+            decoration: BoxDecoration(color: _color),
             child: Text('Hello World!'),
           ),
         ),

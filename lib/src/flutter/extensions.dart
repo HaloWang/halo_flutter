@@ -10,9 +10,9 @@ extension HaloNumT<T extends num> on T {
 
   Radius get rr => Radius.circular(toDouble());
 
-  SB get h => SB(height: toDouble());
+  SizedBox get h => SizedBox(height: toDouble());
 
-  SB get w => SB(width: toDouble());
+  SizedBox get w => SizedBox(width: toDouble());
 
   double get dv => toDouble();
 }

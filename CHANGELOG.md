@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Remove useless typedefs
+
 ## 1.0.0
 
 - Update version to 1.0.0
